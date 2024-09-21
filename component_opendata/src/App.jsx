@@ -13,8 +13,8 @@ function App() {
 function Header(){
 return( //Voi palauttaa vain yhden elementin eli h1 ja p on laitettava "divin" sisään
     <div>
-        <img src="./src/assets/MBMIlogo.png" alt="logo" />
-        <h1>Welcome to product page!</h1>
+      <div><img src="./src/assets/MBMIlogo.png" alt="logo" /></div>
+      <div><h1>Welcome to product page!</h1></div>
     </div>
 )
 }
