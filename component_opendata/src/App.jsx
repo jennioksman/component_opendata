@@ -46,7 +46,7 @@ function ProductForm(){
         </div>
         <div className='quantity'>
           <p>Quantity: </p>
-          <button onClick={()=> setSt(prev => prev-1)}>-</button>
+          <button onClick={()=> setSt(prev => prev > 0 ? prev - 1 : 0)}>-</button>
           <p>{st}</p>
           <button onClick={()=> setSt(prev => prev+1)}>+</button>
         </div>
