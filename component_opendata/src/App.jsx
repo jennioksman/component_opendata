@@ -22,14 +22,29 @@ return( //Voi palauttaa vain yhden elementin eli h1 ja p on laitettava "divin" s
 }
 
 function ProductForm(){
-  return( //Voi palauttaa vain yhden elementin eli h1 ja p on laitettava "divin" sisään
+
+    const [product, setProduct] = useState("choose");
+  
+    const handleChange = (event) => {
+      setProduct(event.target.value)
+    }
+  
+    return (
       <div>
         <h3>Select product</h3>
         <p>Product: </p>
+        <form>
+          <select value={product} onChange={handleChange}>
+            <option value="choose">Choose option</option>
+            <option value="hook">Hook 3mm</option>
+            <option value="needels">Needles 6mm</option>
+            <option value="yarn">Drops Merino Exrta Fine Beige</option>
+          </select>
+        </form>
         <p>Quantity: </p>
       </div>
   )
-  }
+}
 
   function OrderInfo(){
     return( //Voi palauttaa vain yhden elementin eli h1 ja p on laitettava "divin" sisään
