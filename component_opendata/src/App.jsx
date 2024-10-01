@@ -24,6 +24,7 @@ return( //Voi palauttaa vain yhden elementin eli h1 ja p on laitettava "divin" s
 function ProductForm(){
 
     const [product, setProduct] = useState("choose");
+    const [st, setSt] = useState(0)
   
     const handleChange = (event) => {
       setProduct(event.target.value)
@@ -42,6 +43,9 @@ function ProductForm(){
           </select>
         </form>
         <p>Quantity: </p>
+        <button onClick={()=> setSt(prev => prev-1)}>-</button>
+        <p>{st}</p>
+        <button onClick={()=> setSt(prev => prev+1)}>+</button>
       </div>
   )
 }
