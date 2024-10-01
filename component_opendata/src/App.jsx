@@ -33,19 +33,23 @@ function ProductForm(){
     return (
       <div>
         <h3>Select product</h3>
-        <p>Product: </p>
-        <form>
-          <select value={product} onChange={handleChange}>
-            <option value="choose">Choose option</option>
-            <option value="hook">Hook 3mm</option>
-            <option value="needels">Needles 6mm</option>
-            <option value="yarn">Drops Merino Exrta Fine Beige</option>
-          </select>
-        </form>
-        <p>Quantity: </p>
-        <button onClick={()=> setSt(prev => prev-1)}>-</button>
-        <p>{st}</p>
-        <button onClick={()=> setSt(prev => prev+1)}>+</button>
+        <div className='product'>
+          <p>Product: </p>
+          <form>
+            <select value={product} onChange={handleChange}>
+              <option value="choose">Choose option</option>
+              <option value="hook">Hook 3mm</option>
+              <option value="needels">Needles 6mm</option>
+              <option value="yarn">Drops Merino Exrta Fine Beige</option>
+            </select>
+          </form>
+        </div>
+        <div className='quantity'>
+          <p>Quantity: </p>
+          <button onClick={()=> setSt(prev => prev-1)}>-</button>
+          <p>{st}</p>
+          <button onClick={()=> setSt(prev => prev+1)}>+</button>
+        </div>
       </div>
   )
 }
