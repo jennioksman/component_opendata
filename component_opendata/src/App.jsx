@@ -40,11 +40,9 @@ function ProductForm() {
     setProduct(selectedProduct.name)
     setPrice(selectedProduct.price)
     setSt(1)
-    console.log("Selected Product Price:", selectedProduct.price)
   }
 
   useEffect(() => {
-    // Lasketaan kokonaishinta, kun tuote tai kappalemäärä muuttuu
     setTotalPrice(price * st)
   }, [price, st]);
 
