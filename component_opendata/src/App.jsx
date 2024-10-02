@@ -22,9 +22,9 @@ function Header() {
 
 function ProductForm() {
 
-  const [product, setProduct] = useState("choose")
+  const [product, setProduct] = useState(' ')
   const [price, setPrice] = useState(null)
-  const [st, setSt] = useState(1)
+  const [st, setSt] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0);
 
   const products = [
@@ -55,9 +55,10 @@ function ProductForm() {
       <div className='product'>
         <p>Product: </p>
         <select value={product} onChange={handleChange}>
-          {
-            products.map(p => <option key={p.name} value={p.name}>{p.name} ({p.price})€</option>)
-          }
+          <option value=" " disabled>Choose a product</option>
+            {
+              products.map(p => <option key={p.name} value={p.name}>{p.name} ({p.price})€</option>)
+            }
         </select>
       </div>
       <div className='quantity'>
