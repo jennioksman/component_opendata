@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
 
-  return ( //Koodia on kätevä toistaa, koska voi käyttää samaa komponenttia toistamatta koodia
+  return ( 
     <>
       <Header />
       <ProductForm />
@@ -12,7 +12,7 @@ function App() {
 }
 
 function Header() {
-  return ( //Voi palauttaa vain yhden elementin eli h1 ja p on laitettava "divin" sisään
+  return ( 
     <div className='header'>
       <img src="./src/assets/MBMIlogo.png" alt="logo" />
       <h1>Welcome to product page!</h1>
@@ -25,7 +25,7 @@ function ProductForm() {
   const [product, setProduct] = useState(' ')
   const [price, setPrice] = useState(null)
   const [st, setSt] = useState(0)
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0)
 
   const products = [
     { name: "Wooden Hook 3mm", price: 7.90 },
@@ -36,17 +36,16 @@ function ProductForm() {
   ]
 
   const handleChange = (event) => {
-    const selectedProduct = products.find(p => p.name === event.target.value);
-    setProduct(selectedProduct.name);
-    setPrice(selectedProduct.price);
+    const selectedProduct = products.find(p => p.name === event.target.value)
+    setProduct(selectedProduct.name)
+    setPrice(selectedProduct.price)
     setSt(1)
-    console.log("Selected Product Price:", selectedProduct.price);
+    console.log("Selected Product Price:", selectedProduct.price)
   }
 
   useEffect(() => {
     // Lasketaan kokonaishinta, kun tuote tai kappalemäärä muuttuu
-    setTotalPrice(price * st);
-    console.log(totalPrice)
+    setTotalPrice(price * st)
   }, [price, st]);
 
   return (
@@ -68,24 +67,26 @@ function ProductForm() {
         <button onClick={() => setSt(prev => prev + 1)}>+</button>
       </div>
       <h3>Order Info</h3>
-      <div className='array'>
-        <table>
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Quantity</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{product}</td>
-              <td>{st}</td>
-              <td>{totalPrice.toFixed(2)}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      {product !== " " && (
+        <div className='array'>
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{product}</td>
+                <td>{st}</td>
+                <td>{totalPrice.toFixed(2)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   )
 }
