@@ -14,8 +14,8 @@ function App() {
 function Header() {
   return ( //Voi palauttaa vain yhden elementin eli h1 ja p on laitettava "divin" sisään
     <div className='header'>
-      <div><img src="./src/assets/MBMIlogo.png" alt="logo" /></div>
-      <div><h1>Welcome to product page!</h1></div>
+      <img src="./src/assets/MBMIlogo.png" alt="logo" />
+      <h1>Welcome to product page!</h1>
     </div>
   )
 }
@@ -81,7 +81,7 @@ function ProductForm() {
             <tr>
               <td>{product}</td>
               <td>{st}</td>
-              <td>{totalPrice}</td>
+              <td>{totalPrice.toFixed(2)}</td>
             </tr>
           </tbody>
         </table>
