@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
@@ -7,7 +7,6 @@ function App() {
     <>
       <Header />
       <ProductForm />
-      <OrderInfo />
     </>
   )
 }
@@ -25,7 +24,8 @@ function ProductForm() {
 
   const [product, setProduct] = useState("choose")
   const [price, setPrice] = useState(null)
-  const [st, setSt] = useState(0)
+  const [st, setSt] = useState(1)
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const products = [
     { name: "Wooden Hook 3mm", price: 7.90 },
@@ -39,10 +39,15 @@ function ProductForm() {
     const selectedProduct = products.find(p => p.name === event.target.value);
     setProduct(selectedProduct.name);
     setPrice(selectedProduct.price);
+    setSt(1)
     console.log("Selected Product Price:", selectedProduct.price);
   }
 
-  
+  useEffect(() => {
+    // Lasketaan kokonaishinta, kun tuote tai kappalemäärä muuttuu
+    setTotalPrice(price * st);
+    console.log(totalPrice)
+  }, [price, st]);
 
   return (
     <div>
@@ -61,26 +66,23 @@ function ProductForm() {
         <p>{st}</p>
         <button onClick={() => setSt(prev => prev + 1)}>+</button>
       </div>
-    </div>
-  )
-}
-
-function OrderInfo() {
-  return ( //Voi palauttaa vain yhden elementin eli h1 ja p on laitettava "divin" sisään
-    <div>
       <h3>Order Info</h3>
       <div className='array'>
         <table>
-          <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Total</th>
-          </tr>
-          <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{product}</td>
+              <td>{st}</td>
+              <td>{totalPrice}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
