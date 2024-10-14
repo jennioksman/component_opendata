@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import axios from "axios"
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Header />
       <ProductForm />
+      <OpenData/>
     </>
   )
 }
@@ -90,10 +92,32 @@ function ProductForm() {
 }
 
 function OpenData() {
-  
+
+  const [drink, setDrink] = useState(null)
+  const [img, setImg] = useState(null)
+
+  async function getDrink() {
+    try {
+      const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+      const data = response.data
+      setDrink(data.drinks[0].strDrink)
+      setImg(data.drinks[0].strDrinkThumb)
+    } catch (error) {
+      console.error('ei löytynnä mittään', error)
+    }
+    
+    
+  }
+
   return(
     <div>
-
+      <div className='drink'>
+        <h3>I am so bored!</h3>
+        <button onClick={getDrink}>Get me a drink!</button>
+      </div>
+      
+      <h3>How about: {drink}</h3>
+      <img src={img} />
     </div>
   )
 }

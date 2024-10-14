@@ -2,7 +2,7 @@ body {
     margin-left: 20%;
 }
 
-.header, .quantity, .product {
+.header, .quantity, .product, .drink {
     display: flex;
     flex-direction: row;
     align-items: center;
