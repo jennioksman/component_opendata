@@ -95,6 +95,7 @@ function OpenData() {
 
   const [drink, setDrink] = useState(null)
   const [img, setImg] = useState(null)
+  const [reciep, setReciep] = useState(null)
 
   async function getDrink() {
     try {
@@ -102,6 +103,7 @@ function OpenData() {
       const data = response.data
       setDrink(data.drinks[0].strDrink)
       setImg(data.drinks[0].strDrinkThumb)
+      setReciep(data.drinks[0].strInstructions)
     } catch (error) {
       console.error('ei löytynnä mittään', error)
     }
@@ -115,9 +117,9 @@ function OpenData() {
         <h3>I am so bored!</h3>
         <button onClick={getDrink}>Get me a drink!</button>
       </div>
-      
       <h3>How about: {drink}</h3>
       <img src={img} />
+      <p>{reciep}</p>
     </div>
   )
 }
