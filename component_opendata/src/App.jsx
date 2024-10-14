@@ -7,6 +7,7 @@ function App() {
   return ( 
     <>
       <OpenData/>
+      <FindDrink/>
     </>
   )
 }
@@ -140,6 +141,34 @@ function OpenData() {
       <p>{reciep}</p>
     </div>
   )
+}
+
+function FindDrink() {
+
+  const [search, setSearch] = useState('')
+  const [coctail, setCoctail] = useState(null)
+
+  async function getCoctail(){
+
+    try{
+      console.log({search})
+      const response = await axios('https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+search);
+      const data = response.data.drinks
+      setCoctail(data[0].strDrink)
+      
+    }catch(e){
+      setCoctail('ei löytynnä')
+    }
+  }
+
+  return (
+    <div>
+      <input type="text" value={search} onChange={e => setSearch(e.target.value)}/>
+      <button onClick={getCoctail}>Search</button>
+      <h1>{coctail}</h1>
+    </div>
+)
+
 }
 
 export default App
