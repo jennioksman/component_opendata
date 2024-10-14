@@ -6,8 +6,6 @@ function App() {
 
   return ( 
     <>
-      <Header />
-      <ProductForm />
       <OpenData/>
     </>
   )
@@ -95,15 +93,28 @@ function OpenData() {
 
   const [drink, setDrink] = useState(null)
   const [img, setImg] = useState(null)
+  const [ingredients, setIngredients] = useState([])
   const [reciep, setReciep] = useState(null)
 
   async function getDrink() {
     try {
       const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-      const data = response.data
-      setDrink(data.drinks[0].strDrink)
-      setImg(data.drinks[0].strDrinkThumb)
-      setReciep(data.drinks[0].strInstructions)
+      const data = response.data.drinks[0]
+      setDrink(data.strDrink)
+      setImg(data.strDrinkThumb)
+      setReciep(data.strInstructions)
+
+      // Käydään läpi ainesosat (strIngredient1 - strIngredient15)
+      const ingredientList = []
+      for (let i = 1; i <= 15; i++) {
+        const ingredient = data[`strIngredient${i}`]
+        const measure = data[`strMeasure${i}`]
+        if (ingredient) {
+          ingredientList.push(`${measure ? measure : ''} ${ingredient}`)
+        }
+      }
+      setIngredients(ingredientList)
+
     } catch (error) {
       console.error('ei löytynnä mittään', error)
     }
@@ -119,6 +130,13 @@ function OpenData() {
       </div>
       <h3>How about: {drink}</h3>
       <img src={img} />
+      <ul>
+        {
+          ingredients.map((ingr, index) => (
+          <li key={index}>{ingr}</li>
+          ))
+        }
+      </ul>
       <p>{reciep}</p>
     </div>
   )
