@@ -6,8 +6,11 @@ function App() {
 
   return ( 
     <>
-      <OpenData/>
-      <FindDrink/>
+      <Header2/>
+      <div className='component-container'>
+        <OpenData/>
+        <FindDrink/>
+      </div>
     </>
   )
 }
@@ -135,6 +138,7 @@ function OpenData() {
   return(
     <div>
       <div className='drink'>
+        <img src="src/assets/bored.webp" alt="bored" />
         <h3>I am so bored!</h3>
         <button onClick={getDrink}>Get me a drink!</button>
       </div>

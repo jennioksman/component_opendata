@@ -45,3 +45,19 @@ p {
 select {
     padding: 5px;
 }
+
+.component-container {
+    display: flex;            
+    justify-content: space-between;  
+    align-items: flex-start;   
+    gap: 20px;                 
+    margin: 20px;
+  }
+  
+.component-container > div {
+    flex: 1;                   
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
