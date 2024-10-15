@@ -21,7 +21,14 @@ function Header() {
   )
 }
 
-
+function Header2() {
+  return ( 
+    <div className='header'>
+      <img src="./src/assets/cclogo.webp" alt="logo" />
+      <h1>Welcome to Coctail Corner!</h1>
+    </div>
+  )
+}
 
 function ProductForm() {
 
