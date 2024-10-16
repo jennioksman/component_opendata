@@ -93,7 +93,7 @@ function FindDrink() {
       setIngredients(ingredientList)
 
     } catch (e) {
-      setCoctail('ei löytynnä')
+      setCoctail('Did not find any drink named '+ search + ' :(')
     }
   }
 
