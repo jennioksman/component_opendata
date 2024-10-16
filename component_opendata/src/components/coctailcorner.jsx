@@ -49,7 +49,7 @@ function OpenData() {
       <img src="src/assets/bored.webp" alt="bored" />
       <h3>I am so bored!</h3>
       <button onClick={getDrink}>Get me a drink!</button>
-      <h3>{text} {drink}?</h3>
+      <h3>{text} {drink}</h3>
       <img src={img} />
       <ul>
         {
