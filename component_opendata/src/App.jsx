@@ -1,7 +1,7 @@
 import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom'
 import { FindDrink, Header2, OpenData } from './components/coctailcorner'
 import { Header1, ProductForm } from './components/productpage'
-import './App.css' 
+
 
 const router = createBrowserRouter([
   {
@@ -41,8 +41,10 @@ function Productpage() {
   return( 
     <div>
       <Header1/>
-      <ProductForm/>
-      <Link to={'/coctailcorner'}>Go to Coctail Corner</Link>
+      <div className='productpage'>
+        <ProductForm/>
+        <Link to={'/coctailcorner'}>Go to Coctail Corner</Link>
+      </div>
     </div>
   )
 }
@@ -50,9 +52,13 @@ function CoctailCorner() {
   return( 
     <div>
       <Header2/>
-      <OpenData/>
-      <FindDrink/>
-      <Link to={'/'}>Go tback home</Link>
+      <div className='component-container'>
+        <div className='drink'>
+          <OpenData/>
+        </div>
+        <FindDrink/>
+        <Link to={'/'}>Go tback home</Link>
+      </div>
   </div>
   )
 }
