@@ -1,19 +1,54 @@
-import { FindDrink, Header2, OpenData } from './components/coctailcorner'
-import { Header, ProductForm } from './components/productpage'
+import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home/>
+  },
+  {
+    path: '/productpage',
+    element: <Productpage/>
+  },
+  {
+    path: '/coctailcorner',
+    element: <CoctailCorner/>
+  }
+])
 
 function App() {
 
   return ( 
-    <>
-      <Header/>
-      <ProductForm/>
-      <Header2/>
-      <div className='component-container'>
-        <OpenData/>
-        <FindDrink/>
-      </div>
-    </>
+    
+    <div>
+        <h1>Welcome to my page</h1>
+        <RouterProvider router={router}/>
+    </div>
+  
   )
 }
 
+function Home() { 
+  return( 
+    <>
+      <h2>Home page</h2>
+      <Link to={'../src/components/productpage'}>Go to the product page</Link>
+    </> 
+  )
+}
+function Productpage() { 
+  return( 
+  <>
+    <h2>Productpage</h2>
+    <Link to={'/coctailcorner'}>Go to Coctail Corner</Link> 
+  </>
+  )
+}
+function CoctailCorner() { 
+  return( 
+  <>
+    <h2>Coctail Corner</h2>
+    <Link to={'/'}>Go back home</Link> 
+  </>
+  )
+}
 export default App
