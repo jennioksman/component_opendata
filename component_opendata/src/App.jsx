@@ -1,21 +1,27 @@
-import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Link, Outlet, RouterProvider } from 'react-router-dom'
 import { FindDrink, Header2, OpenData } from './components/coctailcorner'
 import { Header1, ProductForm } from './components/productpage'
 
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Home/>
-  },
-  {
-    path: '/productpage',
-    element: <Productpage/>
-  },
-  {
-    path: '/coctailcorner',
-    element: <CoctailCorner/>
-  }
+    path:'/',
+    element: <NavigationBar/>,
+    children: [
+    { 
+      path: '/',
+      element: <Home/>
+    },
+    {
+      path: '/productpage',
+      element: <Productpage/>
+    },
+    {
+      path: '/coctailcorner',
+      element: <CoctailCorner/>
+    }
+  ]
+  }  
 ])
 
 function App() {
@@ -29,11 +35,21 @@ function App() {
   )
 }
 
+function NavigationBar() {
+  return(
+    <div className='nav'>
+      <Link to={'/'}> Home </Link>
+      <Link to={'/productpage'}> Product page </Link>
+      <Link to={'/coctailcorner'}> Coctail Corner </Link>
+      <Outlet/>
+    </div>
+  )
+}
+
 function Home() {
   return(
     <div>
-      <h2>Welcome!</h2>
-      <Link to={'/productpage'}>Go to Coctail Corner</Link>
+      <h1>Welcome to my page!</h1>
     </div>
   )
 }
@@ -43,7 +59,6 @@ function Productpage() {
       <Header1/>
       <div className='productpage'>
         <ProductForm/>
-        <Link to={'/coctailcorner'}>Go to Coctail Corner</Link>
       </div>
     </div>
   )
@@ -56,8 +71,9 @@ function CoctailCorner() {
         <div className='drink'>
           <OpenData/>
         </div>
-        <FindDrink/>
-        <Link to={'/'}>Go tback home</Link>
+        <div className='search'>
+          <FindDrink/>
+        </div>  
       </div>
   </div>
   )
