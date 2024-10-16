@@ -1,4 +1,7 @@
 import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom'
+import { FindDrink, Header2, OpenData } from './components/coctailcorner'
+import { Header1, ProductForm } from './components/productpage'
+import './App.css' 
 
 const router = createBrowserRouter([
   {
@@ -20,35 +23,37 @@ function App() {
   return ( 
     
     <div>
-        <h1>Welcome to my page</h1>
         <RouterProvider router={router}/>
     </div>
   
   )
 }
 
-function Home() { 
-  return( 
-    <>
-      <h2>Home page</h2>
-      <Link to={'../src/components/productpage'}>Go to the product page</Link>
-    </> 
+function Home() {
+  return(
+    <div>
+      <h2>Welcome!</h2>
+      <Link to={'/productpage'}>Go to Coctail Corner</Link>
+    </div>
   )
 }
 function Productpage() { 
   return( 
-  <>
-    <h2>Productpage</h2>
-    <Link to={'/coctailcorner'}>Go to Coctail Corner</Link> 
-  </>
+    <div>
+      <Header1/>
+      <ProductForm/>
+      <Link to={'/coctailcorner'}>Go to Coctail Corner</Link>
+    </div>
   )
 }
 function CoctailCorner() { 
   return( 
-  <>
-    <h2>Coctail Corner</h2>
-    <Link to={'/'}>Go back home</Link> 
-  </>
+    <div>
+      <Header2/>
+      <OpenData/>
+      <FindDrink/>
+      <Link to={'/'}>Go tback home</Link>
+  </div>
   )
 }
 export default App

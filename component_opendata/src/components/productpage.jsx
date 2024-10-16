@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import '../App.css'
 
-function Header() {
+function Header1() {
     return ( 
       <div className='header'>
         <img src="./src/assets/MBMIlogo.png" alt="logo" />
@@ -79,4 +79,4 @@ function ProductForm() {
     )
   }
 
-export  {Header, ProductForm}
+export  {Header1, ProductForm}
