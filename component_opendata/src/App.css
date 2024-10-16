@@ -1,13 +1,12 @@
-.header, .productpage {
-    margin-left: 20%;
+.header {
+    justify-content: center;
 }
-
-
 
 .header, .quantity, .product, .productpage {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 .header img {
@@ -17,7 +16,16 @@
 }
 
 .nav {
+    text-align: center;
+    margin-top: 20px;
+}
 
+.nav a:link {
+    text-decoration: none;
+    padding: 10px;
+    margin: 20px;
+    color: black;
+    font-size: 20px;
 }
 
 .drink {
