@@ -40,7 +40,7 @@ function OpenData() {
       setText('How about: ')
 
     } catch (error) {
-      console.error('ei löytynnä mittään', error)
+      console.error('Sorry, did not find anything :(', error)
     }
   }
 
