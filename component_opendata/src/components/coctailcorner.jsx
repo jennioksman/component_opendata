@@ -48,19 +48,23 @@ function OpenData() {
       <div>
         <div className='drink'>
           <img src="src/assets/bored.webp" alt="bored" />
-          <h3>I am so bored!</h3>
-          <button onClick={getDrink}>Get me a drink!</button>
+          <div>
+            <h3>I am so bored!</h3>
+            <button onClick={getDrink}>Get me a drink!</button>
+          </div>
         </div>
-        <h3>{text} {drink}</h3>
-        <img src={img} />
-        <ul>
-          {
-            ingredients.map((ingr, index) => (
-            <li key={index}>{ingr}</li>
-            ))
-          }
-        </ul>
-        <p>{reciep}</p>
+        <div className='randomdrink'>
+          <h3>{text} {drink}</h3>
+          <img src={img} />
+          <ul>
+            {
+              ingredients.map((ingr, index) => (
+              <li key={index}>{ingr}</li>
+              ))
+            }
+          </ul>
+          <p>{reciep}</p>
+        </div>
       </div>
     )
   }
@@ -101,18 +105,23 @@ function FindDrink() {
   
     return (
       <div>
-        <input type="text" value={search} onChange={e => setSearch(e.target.value)}/>
-        <button onClick={getCoctail}>Search</button>
-        <h1>{coctail}</h1>
-        <img src={img} />
-        <ul>
-          {
-            ingredients.map((ingr, index) => (
-            <li key={index}>{ingr}</li>
-            ))
-          }
-        </ul>
-        <p>{reciep}</p>
+        <div className='find'>
+          <h3>Find your drink!</h3>
+          <input type="text" value={search} onChange={e => setSearch(e.target.value)}/>
+          <button onClick={getCoctail}>Search</button>
+        </div>
+        <div className='search'>
+          <h1>{coctail}</h1>
+          <img src={img} />
+          <ul>
+            {
+              ingredients.map((ingr, index) => (
+              <li key={index}>{ingr}</li>
+              ))
+            }
+          </ul>
+          <p>{reciep}</p>
+        </div>
       </div>
   )
   }
