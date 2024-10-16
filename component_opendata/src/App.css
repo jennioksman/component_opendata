@@ -67,14 +67,17 @@ table, td, th {
 
 table {
     margin: 10px;
+    background-color: black;
 }
 
 th {
+    background-color: white;
     padding: 10px;
     
 }
 
 td {
+    background-color: white;
     text-align: center;
     padding: 5px;
 }
@@ -94,6 +97,7 @@ p {
 }
 
 select {
+    border: 5px solid black;
     padding: 5px;
 }
 

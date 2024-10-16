@@ -1,3 +1,4 @@
+
 import { createBrowserRouter, Link, Outlet, RouterProvider } from 'react-router-dom'
 import { FindDrink, Header2, OpenData } from './components/coctailcorner'
 import { Header1, ProductForm } from './components/productpage'
@@ -24,14 +25,13 @@ const router = createBrowserRouter([
   }  
 ])
 
+
 function App() {
 
-  return ( 
-    
+  return (   
     <div>
         <RouterProvider router={router}/>
     </div>
-  
   )
 }
 
@@ -78,4 +78,5 @@ function CoctailCorner() {
   </div>
   )
 }
+
 export default App
