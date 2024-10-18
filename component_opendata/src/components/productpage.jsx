@@ -4,7 +4,7 @@ import '../App.css'
 function Header1() {
   return ( 
     <div className='header'>
-      <img src="./src/assets/MBMIlogo.png" alt="logo" />
+      <img src=".//MBMIlogo.png" alt="logo" />
       <h1>Welcome to product page!</h1>
     </div>
   )
@@ -54,8 +54,17 @@ function ProductForm() {
         <p>{st}</p>
         <button onClick={() => setSt(prev => prev + 1)}>+</button>
       </div>
-      <h3>Order Info</h3>
       {product !== " " && (
+        <OrderInfo product={product} st={st} totalPrice={totalPrice} />
+      )}
+    </div>
+  )
+}
+
+function OrderInfo({ product, st, totalPrice }) {
+  return (
+    <div>
+      <h3>Order Info</h3>
         <div className='array'>
           <table>
             <thead>
@@ -74,10 +83,9 @@ function ProductForm() {
             </tbody>
           </table>
         </div>
-      )}
     </div>
   )
 }
 
-export {Header1, ProductForm}
+export {Header1, ProductForm, OrderInfo}
 
