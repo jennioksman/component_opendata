@@ -1,7 +1,7 @@
 
 import { createBrowserRouter, Link, Outlet, RouterProvider } from 'react-router-dom'
 import { FindDrink, Header2, OpenData } from './components/coctailcorner'
-import { Header1, ProductForm } from './components/productpage'
+import { Header, ProductForm } from './components/productpage'
 
 
 const router = createBrowserRouter([
@@ -56,7 +56,7 @@ function Home() {
 function Productpage() { 
   return( 
     <div>
-      <Header1/>
+      <Header/>
       <div className='productpage'>
         <ProductForm/>
       </div>

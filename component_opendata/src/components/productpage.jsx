@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 import '../App.css'
+import logo from '../assets/MBMIlogo.png'
 
-function Header1() {
-  return ( 
+function Header() {
+
+  const headertext = 'Welcome to product page!'
+
+  return (
     <div className='header'>
-      <img src=".//MBMIlogo.png" alt="logo" />
-      <h1>Welcome to product page!</h1>
+      <img src={logo} />
+      <h1>{headertext}</h1>
     </div>
   )
 }
@@ -87,5 +91,5 @@ function OrderInfo({ product, st, totalPrice }) {
   )
 }
 
-export {Header1, ProductForm, OrderInfo}
+export {Header, ProductForm, OrderInfo}
 

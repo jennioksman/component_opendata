@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
 import '../App.css'
 import axios from "axios"
+import logo from '../assets/cclogo.webp'
 
 function Header2() {
+
+  const headertext = 'Welcome to Coctail Corner!'
+
   return (
     <div className='header'>
-      <img src="./src/assets/cclogo.webp" alt="logo" />
-      <h1>Welcome to Coctail Corner!</h1>
+      <img src={logo} />
+      <h1>{headertext}</h1>
     </div>
   )
 }
