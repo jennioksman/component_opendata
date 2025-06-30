@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import '../App.css'
-import logo from '../assets/MBMIlogo.png'
+import knitting from '../assets/knitting.jpg'
 
 function Header() {
 
-  const headertext = 'Welcome to product page!'
+  const headertext = 'Welcome to the world of Hand Craft'
 
   return (
     <div className='header'>
-      <img src={logo} />
+      <img src={knitting} />
       <h1>{headertext}</h1>
     </div>
   )

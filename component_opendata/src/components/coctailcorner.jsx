@@ -9,7 +9,6 @@ function Header2() {
 
   return (
     <div className='header'>
-      <img src={logo} />
       <h1>{headertext}</h1>
     </div>
   )

@@ -1,7 +1,12 @@
 
 import { createBrowserRouter, Link, Outlet, RouterProvider } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { FindDrink, Header2, OpenData } from './components/coctailcorner'
 import { Header, ProductForm } from './components/productpage'
+import logoDefault from '../src/assets/bored.webp'
+import logoCoctail from '../src/assets/cclogo.webp'
+import logoProduct from '../src/assets/MBMIlogo.png';
+
 
 
 const router = createBrowserRouter([
@@ -36,13 +41,33 @@ function App() {
 }
 
 function NavigationBar() {
+  const location = useLocation()
+
+  // Valitse kuva reitin mukaan
+  let logo;
+  switch (location.pathname) {
+    case '/productpage':
+      logo = logoProduct;
+      break;
+    case '/coctailcorner':
+      logo = logoCoctail;
+      break;
+    default:
+      logo = logoDefault;
+  }
   return(
-    <div className='nav'>
-      <Link to={'/'}> Home </Link>
-      <Link to={'/productpage'}> Product page </Link>
-      <Link to={'/coctailcorner'}> Coctail Corner </Link>
-      <Outlet/>
-    </div>
+   <>
+      <div className='nav'>
+        <img src={logo} className='logo'/>
+        <div className='nav-links'>
+          <Link to={'/'}>Home</Link>
+          <Link to={'/productpage'}>Product page</Link>
+          <Link to={'/coctailcorner'}>Coctail Corner</Link>
+        </div>
+      </div>
+      {/* Outlet näyttää reititetyn sisällön navigaation alapuolella */}
+      <Outlet />
+    </>
   )
 }
 

@@ -15,16 +15,40 @@
     margin: 20px;
 }
 
+
+
+.logo {
+    max-width: 10%;
+    border-radius: 50%;
+    
+}
+
 .nav {
-    text-align: center;
-    margin-top: 20px;
+    display: flex;               /* rivittää logon ja linkit vierekkäin */
+    align-items: center;  
+    background-color: rgb(2, 2, 2);       /* keskittää pystysuunnassa */
+    gap: 20px;                   /* väli logon ja linkkien välille */
+    
+        
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    
 }
 
 .nav a:link {
     text-decoration: none;
     padding: 10px;
     margin: 20px;
-    font-size: 20px;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: rgb(202, 202, 106);
+}
+
+.nav a {
+    color: rgb(206, 179, 70);
 }
 
 .drink {
