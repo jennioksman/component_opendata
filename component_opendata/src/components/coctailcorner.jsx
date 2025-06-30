@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import '../App.css'
 import axios from "axios"
-import logo from '../assets/cclogo.webp'
+import bored from '../assets/bored.webp'
 
 function Header2() {
 
@@ -49,7 +49,7 @@ function OpenData() {
 
   return (
     <div className='drink'>
-      <img src="src/assets/bored.webp" alt="bored" />
+      <img src={bored} alt="bored" />
       <h3>I am so bored!</h3>
       <button onClick={getDrink}>Get me a drink!</button>
       <h3>{text} {drink}</h3>
