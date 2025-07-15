@@ -48,20 +48,26 @@ function OpenData() {
   }
 
   return (
-    <div className='drink'>
+    <div>
+      <div className='drink'>
       <img src={bored} alt="bored" />
-      <h3>I am so bored!</h3>
-      <button onClick={getDrink}>Get me a drink!</button>
-      <h3>{text} {drink}</h3>
-      <img src={img} />
-      <ul>
-        {
-          ingredients.map((ingr, index) => (
-            <li key={index}>{ingr}</li>
-          ))
-        }
-      </ul>
-      <p>{reciep}</p>
+      <div className='bored-container'>
+        <h3>I am so bored!</h3>
+        <button onClick={getDrink}>Get me a drink!</button>
+      </div>
+    </div>
+    <div className='bored-container'>
+         <h3>{text} {drink}</h3>
+        <img src={img} />
+        <ul>
+          {
+            ingredients.map((ingr, index) => (
+              <li key={index}>{ingr}</li>
+            ))
+          }
+        </ul>
+        <p>{reciep}</p>
+      </div>
     </div>
   )
 }
@@ -96,12 +102,12 @@ function FindDrink() {
       setIngredients(ingredientList)
 
     } catch (e) {
-      setCoctail('Did not find any drink named '+ search + ' :(')
+      setCoctail('Did not find any drink named ' + search + ' :(')
     }
   }
 
   return (
-    <div className='search'>
+    <div className=''>
       <h3>Find a drink:</h3>
       <input type="text" value={search} onChange={e => setSearch(e.target.value)} />
       <button onClick={getCoctail}>Search</button>

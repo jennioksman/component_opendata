@@ -90,15 +90,15 @@ function Productpage() {
 }
 function CoctailCorner() { 
   return( 
-    <div>
+    <div className='container'>
       <Header2/>
       <div className='component-container'>
-        <div className='drink'>
-          <OpenData/>
-        </div>
         <div className='search'>
           <FindDrink/>
         </div>  
+        <div className='drink'>
+          <OpenData/>
+        </div>
       </div>
   </div>
   )
