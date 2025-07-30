@@ -100,26 +100,30 @@ function FindDrink() {
         }
       }
       setIngredients(ingredientList)
-
+      
     } catch (e) {
       setCoctail('Did not find any drink named ' + search + ' :(')
+      setIngredients('')
+      setImg('')
+      setReciep('')
+      
     }
   }
 
   return (
-    <div className=''>
+    <div>
       <h3>Find a drink:</h3>
       <input type="text" value={search} onChange={e => setSearch(e.target.value)} />
       <button onClick={getCoctail}>Search</button>
       <h3>{coctail}</h3>
       <img src={img} />
-      <ul>
-        {
-          ingredients.map((ingr, index) => (
+      {ingredients.length > 0 &&
+        <ul>
+          {ingredients.map((ingr, index) => (
             <li key={index}>{ingr}</li>
-          ))
-        }
-      </ul>
+          ))}
+        </ul>
+      }
       <p>{reciep}</p>
     </div>
   )
