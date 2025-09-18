@@ -2,6 +2,33 @@ import { useState, useEffect } from 'react'
 import '../App.css'
 import axios from "axios"
 import bored from '../assets/bored.webp'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
+
+function Page() {
+  return (
+    <div>
+      <Container>
+        <Row>
+          <Header2 />
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col xs={10} lg={8}>
+            <OpenData />
+          </Col>
+          <Col>
+            <FindDrink />
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  )
+}
 
 function Header2() {
 
@@ -50,14 +77,14 @@ function OpenData() {
   return (
     <div>
       <div className='drink'>
-      <img src={bored} alt="bored" />
-      <div className='bored-container'>
-        <h3>I am so bored!</h3>
-        <button onClick={getDrink}>Get me a drink!</button>
+        <img src={bored} alt="bored" />
+        <div className='bored-container'>
+          <h3>I am so bored!</h3>
+          <button onClick={getDrink}>Get me a drink!</button>
+        </div>
       </div>
-    </div>
-    <div className='bored-container'>
-         <h3>{text} {drink}</h3>
+      <div className='bored-container'>
+        <h3>{text} {drink}</h3>
         <img src={img} />
         <ul>
           {
@@ -100,18 +127,18 @@ function FindDrink() {
         }
       }
       setIngredients(ingredientList)
-      
+
     } catch (e) {
       setCoctail('Did not find any drink named ' + search + ' :(')
       setIngredients('')
       setImg('')
       setReciep('')
-      
+
     }
   }
 
   return (
-    <div>
+    <div className='search-container'>
       <h3>Find a drink:</h3>
       <input type="text" value={search} onChange={e => setSearch(e.target.value)} />
       <button onClick={getCoctail}>Search</button>
@@ -129,4 +156,4 @@ function FindDrink() {
   )
 }
 
-export { Header2, OpenData, FindDrink }
+export { Page }

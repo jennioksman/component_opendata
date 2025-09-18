@@ -1,7 +1,7 @@
 
 import { createBrowserRouter, Link, Outlet, RouterProvider } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
-import { FindDrink, Header2, OpenData } from './components/coctailcorner'
+import { Page } from './components/coctailcorner'
 import { Header, ProductForm } from './components/productpage'
 import logoDefault from '../src/assets/bored.webp'
 import logoCoctail from '../src/assets/cclogo.webp'
@@ -36,6 +36,7 @@ function App() {
   return (   
     <div>
         <RouterProvider router={router}/>
+        <Footer/>
     </div>
   )
 }
@@ -91,16 +92,25 @@ function Productpage() {
 function CoctailCorner() { 
   return( 
     <div className='container'>
-      <Header2/>
-      <div className='component-container'>
-        <div className='search'>
-          <FindDrink/>
-        </div>  
-        <div className='drink'>
-          <OpenData/>
-        </div>
-      </div>
+      <Page/> 
   </div>
+  )
+}
+
+function Footer() {
+  return(
+    <div className='footer'>
+      <footer className="page-footer font-small blue pt-4">
+        <div className="container-fluid text-center text-md-left">
+            <div className="row">
+                <hr className="clearfix w-100 d-md-none pb-0"/>
+            </div>
+        </div>
+        <div className="footer-copyright text-center py-3">© 2025 Copyright:
+            <p>Jenni Oksman</p>
+        </div>
+      </footer>
+    </div>
   )
 }
 

@@ -71,18 +71,23 @@
     color: rgb(206, 179, 70);
 }
 
+.search-container {
+    border-left: 1px solid black;
+    padding-left: 10%;
+}
+
 .drink img {
     max-width: 20%;
     border-radius: 8px;
 }
 
 .search img {
-    max-width: 90%;
+    max-width: 20%;
     border-radius: 8px;
 }
 
 img {
-    max-width: 20%;
+    max-width: 50%;
     margin-right: 0;
 }
 
@@ -163,3 +168,10 @@ select {
     border-radius: 8px;
     margin-left: 20px;
   }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(38, 29, 29);
+  color: rgb(202, 202, 106);
+}
