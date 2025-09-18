@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import '../App.css'
 import axios from "axios"
 import bored from '../assets/bored.webp'
+import bar from '../assets/bar.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -10,13 +11,13 @@ import Col from 'react-bootstrap/Col'
 
 function Page() {
   return (
-    <div>
-      <Container>
+    <div className='page'>
+      <Container fluid>
         <Row>
           <Header2 />
         </Row>
       </Container>
-      <Container>
+      <Container fluid>
         <Row>
           <Col xs={10} lg={8}>
             <OpenData />
@@ -32,11 +33,11 @@ function Page() {
 
 function Header2() {
 
-  const headertext = 'Welcome to Coctail Corner!'
+  const headertext = 'Coctail Corner!'
 
   return (
-    <div className='header'>
-      <h1>{headertext}</h1>
+    <div className='header' style={{ backgroundImage: `url(${bar})` }}>
+        <h1>Coctail Corner</h1>
     </div>
   )
 }
@@ -77,11 +78,19 @@ function OpenData() {
   return (
     <div>
       <div className='drink'>
-        <img src={bored} alt="bored" />
-        <div className='bored-container'>
-          <h3>I am so bored!</h3>
-          <button onClick={getDrink}>Get me a drink!</button>
-        </div>
+        <Container>
+          <Row>
+            <Col xs={12} md={6}>
+              <img src={bored} alt="bored" />
+            </Col>
+            <Col>
+              <div className='bored-container'>
+                <h3>I am so bored!</h3>
+                <button onClick={getDrink}>Get me a drink!</button>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
       <div className='bored-container'>
         <h3>{text} {drink}</h3>
