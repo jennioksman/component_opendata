@@ -19,7 +19,7 @@ function Page() {
       </Container>
       <Container fluid>
         <Row>
-          <Col xs={10} lg={8}>
+          <Col xs={10} lg={9}>
             <OpenData />
           </Col>
           <Col>
@@ -36,7 +36,7 @@ function Header2() {
   const headertext = 'Coctail Corner!'
 
   return (
-    <div className='header' style={{ backgroundImage: `url(${bar})` }}>
+    <div className='header' style={{ backgroundImage: `url(${bar})`, backgroundSize:"100%" }}>
         <h1>Coctail Corner</h1>
     </div>
   )
@@ -76,12 +76,14 @@ function OpenData() {
   }
 
   return (
-    <div>
+    <div className='itDiv'>
       <div className='drink'>
         <Container>
           <Row>
             <Col xs={12} md={6}>
-              <img src={bored} alt="bored" />
+              <div className='boredImgDiv'>
+                <img src={bored} alt="bored" />
+              </div>
             </Col>
             <Col>
               <div className='bored-container'>
