@@ -4,40 +4,41 @@ import axios from "axios"
 import bored from '../assets/bored.webp'
 import bar from '../assets/bar.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 
 
 function Page() {
   return (
-    <div className='page'>
-      <Container fluid>
-        <Row>
-          <Header2 />
-        </Row>
-      </Container>
-      <Container fluid>
-        <Row>
-          <Col xs={10} lg={9}>
-            <OpenData />
-          </Col>
-          <Col>
-            <FindDrink />
-          </Col>
-        </Row>
-      </Container>
+    <div className='container'>
+      <div className='row'>
+        <Header2 />
+      </div>
+      <div className='row py-5'>
+        <div className='col-12 col-md-6 col-lg-4 text-center text-md-start'>
+          <BoredImage />
+        </div>
+        <div className='col-12 col-md-6 col-lg-4 d-flex flex-column align-items-center align-items-md-start text-center text-md-start'>
+          <OpenData />
+        </div>
+        <div className='col-12 col-md-6 col-lg-4 text-center text-md-start border-lg-start'>
+          <FindDrink />
+        </div>
+      </div>
     </div>
   )
 }
 
 function Header2() {
-
-  const headertext = 'Coctail Corner!'
-
   return (
-    <div className='header' style={{ backgroundImage: `url(${bar})`, backgroundSize:"100%" }}>
-        <h1>Coctail Corner</h1>
+    <div className='header' style={{ backgroundImage: `url(${bar})`, backgroundSize: "100%" }}>
+      <h1>Coctail Corner</h1>
+    </div>
+  )
+}
+
+function BoredImage() {
+  return (
+    <div >
+      <img src={bored} alt="bored" className='boredImgDiv' />
     </div>
   )
 }
@@ -77,22 +78,9 @@ function OpenData() {
 
   return (
     <div className='itDiv'>
-      <div className='drink'>
-        <Container>
-          <Row>
-            <Col xs={12} md={6}>
-              <div className='boredImgDiv'>
-                <img src={bored} alt="bored" />
-              </div>
-            </Col>
-            <Col>
-              <div className='bored-container'>
-                <h3>I am so bored!</h3>
-                <button onClick={getDrink}>Get me a drink!</button>
-              </div>
-            </Col>
-          </Row>
-        </Container>
+      <div className='bored-container'>
+        <h3>I am so bored!</h3>
+        <button onClick={getDrink}>Get me a drink!</button>
       </div>
       <div className='bored-container'>
         <h3>{text} {drink}</h3>
@@ -151,8 +139,10 @@ function FindDrink() {
   return (
     <div className='search-container'>
       <h3>Find a drink:</h3>
-      <input type="text" value={search} onChange={e => setSearch(e.target.value)} />
-      <button onClick={getCoctail}>Search</button>
+      <div>
+        <input className='me-1 p-2' type="text" value={search} onChange={e => setSearch(e.target.value)} />
+        <button onClick={getCoctail}>Search</button>
+      </div>
       <h3>{coctail}</h3>
       <img src={img} />
       {ingredients.length > 0 &&
