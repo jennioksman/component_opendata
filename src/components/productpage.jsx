@@ -1,15 +1,27 @@
 import { useState, useEffect } from 'react'
 import '../App.css'
 import knitting from '../assets/knitting.jpg'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+function ProductPage() {
+  return (
+    <div className='container'>
+      <div className='row'>
+        <Header />
+      </div>
+      <div className='row py-5'>
+        <div className='col-12 d-flex flex-column align-items-center text-center text-md-st'>
+          <ProductForm />
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function Header() {
 
-  const headertext = 'Welcome to the world of Hand Craft'
-
   return (
-    <div className='header'>
-      <img src={knitting} />
-      <h1>{headertext}</h1>
+    <div className='header' style={{ backgroundImage: `url(${knitting})`, backgroundSize: "100%"}}>
     </div>
   )
 }
@@ -67,9 +79,9 @@ function ProductForm() {
 
 function OrderInfo({ product, st, totalPrice }) {
   return (
-    <div>
+    <div className=''>
       <h3>Order Info</h3>
-        <div className='array'>
+        <div className='array d-flex flex-column aling-items-center'>
           <table>
             <thead>
               <tr>
@@ -91,5 +103,5 @@ function OrderInfo({ product, st, totalPrice }) {
   )
 }
 
-export {Header, ProductForm, OrderInfo}
+export {ProductPage}
 

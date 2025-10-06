@@ -3,12 +3,12 @@ import { createBrowserRouter, Link, Outlet, RouterProvider } from 'react-router-
 import { useLocation } from 'react-router-dom'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar'
-import { Menu } from 'lucide-react'
-import { Page } from './components/coctailcorner'
-import { Header, ProductForm } from './components/productpage'
+import { CoctailPage } from './components/coctailcorner'
+import { ProductPage } from './components/productpage'
 import logoDefault from '../src/assets/bored.webp'
 import logoCoctail from '../src/assets/cclogo.webp'
 import logoProduct from '../src/assets/MBMIlogo.png';
+import { HomePage } from './components/home';
 
 
 
@@ -61,43 +61,44 @@ function NavigationBar() {
       logo = logoDefault;
   }
   return (
-    <div className='nav'>
-      <Navbar expand="md" className="bg-*" data-bs-theme="dark">
-        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/productpage">Product page</Nav.Link>
-            <Nav.Link as={Link} to="/coctailcorner">Coctail Corner</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-      <Outlet />
-    </div>
+    <>
+      <div className='nav'>
+        <Navbar expand="md" className="bg-*" data-bs-theme="dark">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/productpage">Product page</Nav.Link>
+              <Nav.Link as={Link} to="/coctailcorner">Coctail Corner</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
+      <div>
+        <Outlet />
+      </div>
+    </>
   )
 }
 
 function Home() {
   return (
     <div>
-      <h1>Welcome to my page!</h1>
+      <HomePage/>
     </div>
   )
 }
 function Productpage() {
   return (
     <div>
-      <Header />
-      <div className='productpage'>
-        <ProductForm />
-      </div>
+      <ProductPage />
     </div>
   )
 }
 function CoctailCorner() {
   return (
     <div >
-      <Page />
+      <CoctailPage />
     </div>
   )
 }

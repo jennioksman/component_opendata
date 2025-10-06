@@ -6,7 +6,7 @@ import bar from '../assets/bar.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-function Page() {
+function CoctailPage() {
   return (
     <div className='container'>
       <div className='row'>
@@ -157,4 +157,4 @@ function FindDrink() {
   )
 }
 
-export { Page }
+export { CoctailPage }
